@@ -1,4 +1,4 @@
 CountryReconciliator
 ====================
 
-CountryReconciliator is a library that allows reconcilies countries given the name
+CountryReconciliator is a library that allows reconcilies countries given the name of a country
