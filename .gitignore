@@ -1,5 +1,13 @@
+logs
+tmp
+
+.jar
+*~
+
 *.class
 *.log
+
+bin
 
 # sbt specific
 dist/*
@@ -10,4 +18,12 @@ project/boot/
 project/plugins/project/
 
 # Scala-IDE specific
+.worksheet
 .scala_dependencies
+.project
+.classpath
+.cache
+.DS_Store
+
+#git files
+*.orig
