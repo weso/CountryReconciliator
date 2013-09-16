@@ -117,7 +117,7 @@ class CountryReconciliator (path : String, relativePath : Boolean){
       val wiName = doc.getField(COUNTRY_WINAME_FIELD).stringValue()
 	  val iso2Code = doc.getField(COUNTRY_ISO2_CODE_FIELD).stringValue()
 	  val iso3Code = doc.getField(COUNTRY_ISO3_CODE_FIELD).stringValue()
-	  new CountryResult(wiName, iso2Code, iso3Code)
+	  CountryResult(wiName, iso2Code, iso3Code)
     } else {
       NullCountryResult
     }
