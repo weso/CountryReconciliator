@@ -1,15 +1,39 @@
 logs
 tmp
 
-.jar
+*.jar
 *~
-
 *.class
 *.log
 
-bin
 
-# sbt specific
+bin/
+
+project/project
+project/target
+
+.target
+.history
+
+dist
+
+/.idea
+/*.iml
+/out
+/.idea_modules
+/.classpath
+/.project
+/RUNNING_PID
+/.settings
+
+# Latex specific
+*.bbl
+*.blg
+*.aux
+*.log
+*.out
+
+# Sbt specific
 dist/*
 target/
 lib_managed/
@@ -18,12 +42,11 @@ project/boot/
 project/plugins/project/
 
 # Scala-IDE specific
-.worksheet
 .scala_dependencies
 .project
 .classpath
 .cache
 .DS_Store
 
-#git files
+# Git specific
 *.orig
