@@ -130,7 +130,7 @@ class CountryReconciliator (path : String, relativePath : Boolean){
     var strQuery : String = ""
     query.replace("-", " ").split(" ").foreach(part => {
       logger.debug("PART: " + part)
-      strQuery  += part + "~ OR "
+      strQuery  += part + " OR "
       logger.debug("PART QUERY: " + strQuery)
     })
     strQuery = strQuery.replace(".", "").replace("(", "").replace(")", "")
