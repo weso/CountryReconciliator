@@ -15,21 +15,21 @@ import org.apache.lucene.util.Version
 import org.apache.lucene.analysis.Tokenizer
 
 class CountryAnalyzer extends Analyzer {
-  
-  val df : WordDelimiterFilterFactory = new WordDelimiterFilterFactory
-  val tf : TrimFilterFactory = new TrimFilterFactory
-  
-  def createComponents(arg0 : String, reader : Reader) : TokenStreamComponents = {
-    var result : Tokenizer = new StandardTokenizer(Version.LUCENE_40, reader)    
-    var resultStream : TokenStream = new LowerCaseFilter(Version.LUCENE_40, result)
-    resultStream = tf.create(result)
-    resultStream = df.create(result)
-    resultStream = new StopFilter(Version.LUCENE_40, result, createStopWordsSet)
-    new TokenStreamComponents(result, resultStream)
+
+  val df: WordDelimiterFilterFactory = new WordDelimiterFilterFactory
+  val tf: TrimFilterFactory = new TrimFilterFactory
+
+  def createComponents(arg0: String, reader: Reader): TokenStreamComponents = {
+    val result: Tokenizer = new StandardTokenizer(Version.LUCENE_40, reader)
+    val resultLcf = new LowerCaseFilter(Version.LUCENE_40, result)
+    val resultTf = tf.create(resultLcf)
+    val resultSdf = df.create(resultTf)
+    val resultSf = new StopFilter(Version.LUCENE_40, resultSdf, createStopWordsSet)
+    new TokenStreamComponents(result, resultSf)
   }
-  
-  def createStopWordsSet() : CharArraySet = {
-    val m_Words : HashSet[String] = new HashSet[String]
+
+  def createStopWordsSet(): CharArraySet = {
+    val m_Words: HashSet[String] = new HashSet[String]
     m_Words.add("a");
     m_Words.add("able");
     m_Words.add("about");
@@ -558,6 +558,5 @@ class CountryAnalyzer extends Analyzer {
     m_Words.add("zero");
     CharArraySet.copy(Version.LUCENE_40, m_Words)
   }
-  
 
 }
